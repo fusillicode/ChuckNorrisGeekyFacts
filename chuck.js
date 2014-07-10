@@ -91,17 +91,18 @@ var chuck_norris_geeky_facts = [
 	"Chuck Norris wrote Hello World once... it was called Unix."
 ];
 
+var end_message = "Chuck Norris can create infinite geeky facts about himself, but we can't! Check out our GitHub page to help add more!";
+
 // define and call the function right away for initial page load!
 (getAFact = function() {
 	// check if we're out of facts to avoid an indexOutOfBounds exception
-	if(chuck_norris_geeky_facts.length === 0) {
+	if (chuck_norris_geeky_facts.length === 0) {
 		// all the facts have been seen, tell user that they're done.
-		$("#fact").text("Chuck Norris can create infinite geeky facts about himself, but we can't! Check out our GitHub page to help add more!");
+		$("#fact").text(end_message);
 	} else {
 		// there are still facts in the array, so picks a random one
 		var index = Math.floor(Math.random() * chuck_norris_geeky_facts.length);
 		$("#fact").text(chuck_norris_geeky_facts[index]);
-
 		// remove this fact from the facts list to avoid repeating facts
 		chuck_norris_geeky_facts.splice(index, 1);
 	}

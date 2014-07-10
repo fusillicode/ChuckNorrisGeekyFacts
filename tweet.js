@@ -35,7 +35,7 @@ function prepareMessage(args) {
                                       args.customs.trimString.length;
   var message = args.message.substring(0, args.customs.tweetTextLengthLimit) +
                 (args.customs.tweetTextLengthLimit <= args.message.length ?
-                  trimString :
+                  args.customs.trimString :
                   '');
   return encodeURIComponent(message);
 }

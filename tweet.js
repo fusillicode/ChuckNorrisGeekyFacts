@@ -1,11 +1,10 @@
 
-function tweet(customAttributes) {
-  openPopUp(getPopUp(customAttributes));
+function tweet(args) {
+  openPopUp(getPopUp(args));
 };
 
-function getPopUp(customAttributes) {
-  // default attributes
-  defaultAttributes = {
+function getPopUp(args) {
+  defaults = {
     'message' : '',
     'url'     : window.location.href,
     'height'  : 450,
@@ -13,23 +12,31 @@ function getPopUp(customAttributes) {
     'top'     : $(window).height()/2 - 225,
     'left'    : $(window).width()/2
   };
-  // merge default attributes with the one eventually passed to the function
-  var popUp = $.extend(defaultAttributes, customAttributes);
-  popUp.message = prepareMessage(popUp);
+  var popUp = $.extend(defaults, args);
+  popUp.message = prepareMessage({'message' : popUp.message});
   return popUp;
 }
 
-function prepareMessage(popUp) {
-  var tweetLengthLimit = 140;
-  var tweetUrlLengthLimitForHTTP = 22;
-  var tweetUrlLengthLimitForHTTPS = 23;
-  var numberOfSpaceBeforeUrl = 1;
-  var trimString = '...';
-  var tweetUrlLengthLimit = window.location.protocol === "https:" ?
-                            tweetUrlLengthLimitForHTTPS :
-                            tweetUrlLengthLimitForHTTP;
-  var tweetTextLengthLimit = tweetLengthLimit - tweetUrlLengthLimit - numberOfSpaceBeforeUrl - trimString.length;
-  var message = popUp.message.substring(0, tweetTextLengthLimit) + (tweetTextLengthLimit <= popUp.message.length ? trimString : '');
+function prepareMessage(args) {
+  defaults = {
+    'tweetLengthLimit'            : 140,
+    'tweetUrlLengthLimitForHTTP'  : 22,
+    'tweetUrlLengthLimitForHTTPS' : 23,
+    'numberOfSpaceBeforeUrl'      : 1,
+    'trimString'                  : '...'
+  };
+  args.customs = $.extend(defaults, args.customs);
+  args.customs.tweetUrlLengthLimit = window.location.protocol === "https:" ?
+                                     args.customs.tweetUrlLengthLimitForHTTPS :
+                                     args.customs.tweetUrlLengthLimitForHTTP;
+  args.customs.tweetTextLengthLimit = args.customs.tweetLengthLimit -
+                                      args.customs.tweetUrlLengthLimit -
+                                      args.customs.numberOfSpaceBeforeUrl -
+                                      args.customs.trimString.length;
+  var message = args.message.substring(0, args.customs.tweetTextLengthLimit) +
+                (args.customs.tweetTextLengthLimit <= args.message.length ?
+                  trimString :
+                  '');
   return encodeURIComponent(message);
 }
 

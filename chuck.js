@@ -1,4 +1,4 @@
-var chuck_norris_geeky_facts = [
+var chuckNorrisGeekyFacts = [
 	"When Chuck Norris throws exceptions, it's across the room.",
 	"All arrays Chuck Norris declares are of infinite size, because Chuck Norris knows no bounds.",
 	"Chuck Norris doesn't have disk latency because the hard drive knows to hurry the hell up.",
@@ -91,25 +91,26 @@ var chuck_norris_geeky_facts = [
 	"Chuck Norris wrote Hello World once... it was called Unix."
 ];
 
-var end_message = "Chuck Norris can create infinite geeky facts about himself, but we can't! Check out our GitHub page to help add more!";
+var finalFact = "Chuck Norris can create infinite geeky facts about himself, but we can't! Check out our GitHub page to help add more!";
 
 // define and call the function right away for initial page load!
 (getAFact = function() {
 	// check if we're out of facts to avoid an indexOutOfBounds exception
-	if (chuck_norris_geeky_facts.length === 0) {
+	if (chuckNorrisGeekyFacts.length === 0) {
 		// all the facts have been seen, tell user that they're done.
-		$("#fact").text(end_message);
+		var fact = finalFact;
 	} else {
 		// there are still facts in the array, so picks a random one
-		var index = Math.floor(Math.random() * chuck_norris_geeky_facts.length);
-		$("#fact").text(chuck_norris_geeky_facts[index]);
+		var index = Math.floor(Math.random() * chuckNorrisGeekyFacts.length);
+		var fact = chuckNorrisGeekyFacts[index];
 		// remove this fact from the facts list to avoid repeating facts
-		chuck_norris_geeky_facts.splice(index, 1);
+		chuckNorrisGeekyFacts.splice(index, 1);
 	}
+	$("#fact").text(fact);
 })();
 
 // set up handler for when random fact button clicked
-$("#random_fact").on('click tap', getAFact);
+$("#random-fact").on('click tap', getAFact);
 // bind the tweet function
 $('.tweet').on('click tap', function() {
 	tweet({

@@ -88,7 +88,22 @@ var chuckNorrisGeekyFacts = [
   "In plain C# every statement ends with a semicolon. But in Chuck Norris C# code all statements end with one or more exclamation marks. Because everything Chuck Norris does is amazing!",
   "Chuck Norris can deny the \"License Agreement\" and still be able to install the software.",
   "Google won't search for Chuck Norris because it knows you don't find Chuck Norris, he finds you.",
-  "Chuck Norris wrote Hello World once... it was called Unix."
+  "Chuck Norris wrote Hello World once... it was called Unix.",
+  "Chuck Norris kicks are delivered with exactly-once guarantees. One is enough.",
+  "Chuck Norris is not fault tolerant: he never fails and will not tolerate your faults.",
+  "Chuck Norris recursive functions are tail call optimized without the need of a tail call.",
+  "Chuck Norris can write type safe Assembly.",
+  "Chuck Norris achieves 100% test coverage by angrily staring at the code.",
+  "Chuck Norris does not install Linux. He installs Linus.",
+  "Chuck Norris can invert a SHA-256 hash. With a kick.",
+  "Chuck Norris rewrote Google as a Node.js script serving client-side Java applets.",
+  "Chuck Norris' JavaScript runs on Mosaic.",
+  "Chuck Norris' code has shared mutable state and no locks. And it's thread safe.",
+  "Hardware is what you can kick. Software is what Chuck Norris can kick.",
+  "Chuck Norris doesn't need a garbage collector: the garbage collects itself.",
+  "Chuck Norris once wrote a broken patch. On purpose. Linus merged it into the kernel.",
+  "Chuck Norris has two birthdays: the beginning of time and 1/1/1970.",
+  "Chuck Norris convinced Richard Stallman to install Windows 8 on his machine."
 ];
 
 var finalFact = "Chuck Norris can create infinite geeky facts about himself, but we can't! Check out our GitHub page to help add more!";
